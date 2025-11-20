@@ -1,0 +1,14 @@
+# Python
+*.pyc
+__pycache__/
+
+# Data
+data/processed/
+models/
+logs/
+
+# Virtual Environment
+venv/
+*.venv
+
+.git
