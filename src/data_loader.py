@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 import logging
+import os
 
 class DataLoader:
     """
@@ -24,6 +25,20 @@ class DataLoader:
                 df = pd.read_csv(data_path, encoding='latin-1')
             
             self.logger.info(f"Data loaded successfully from {data_path}. Shape: {df.shape}")
+            
+            # Check for augmented data
+            augmented_path = os.path.join(os.path.dirname(data_path), 'augmented_spam.csv')
+            if os.path.exists(augmented_path):
+                try:
+                    df_aug = pd.read_csv(augmented_path)
+                    # Ensure columns match (v1, v2)
+                    if 'v1' in df_aug.columns and 'v2' in df_aug.columns:
+                        df_aug = df_aug[['v1', 'v2']]
+                        df = pd.concat([df, df_aug], ignore_index=True)
+                        self.logger.info(f"Augmented data merged. New Shape: {df.shape}")
+                except Exception as e:
+                    self.logger.warning(f"Failed to load augmented data: {e}")
+
             return df
         except FileNotFoundError:
             self.logger.error(f"File not found at {data_path}")
