@@ -59,12 +59,20 @@ class SpamModelTrainer:
 
     def save_model(self):
         """
-        Saves the trained pipeline to disk.
+        Saves the trained pipeline and vectorizer to disk.
         """
-        save_path = self.config['paths']['model_save_path']
+        model_save_path = self.config['paths']['model_save_path']
+        vectorizer_save_path = self.config['paths'].get('vectorizer_save_path')
         
         # Ensure directory exists
-        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        os.makedirs(os.path.dirname(model_save_path), exist_ok=True)
         
-        joblib.dump(self.pipeline, save_path)
-        self.logger.info(f"Model saved to {save_path}")
+        joblib.dump(self.pipeline, model_save_path)
+        self.logger.info(f"Model saved to {model_save_path}")
+
+        # Save vectorizer separately if path is provided
+        if vectorizer_save_path and self.pipeline:
+            os.makedirs(os.path.dirname(vectorizer_save_path), exist_ok=True)
+            vectorizer = self.pipeline.named_steps['tfidf']
+            joblib.dump(vectorizer, vectorizer_save_path)
+            self.logger.info(f"Vectorizer saved to {vectorizer_save_path}")
