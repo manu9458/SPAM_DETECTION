@@ -33,5 +33,17 @@ def quick_test():
         print(f"Prediction: {pred} (Spam probability: {spam_prob:.4f})")
         print("-" * 50)
 
+    # Test standalone vectorizer
+    vectorizer_path = 'models/tfidf_vectorizer.joblib'
+    if os.path.exists(vectorizer_path):
+        print(f"\nLoading vectorizer from {vectorizer_path}...")
+        vectorizer = joblib.load(vectorizer_path)
+        transformed_data = vectorizer.transform(test_messages)
+        print(f"Vectorizer loaded successfully.")
+        print(f"Transformed data shape: {transformed_data.shape}")
+        print("Sample feature names:", vectorizer.get_feature_names_out()[:10])
+    else:
+        print(f"\nVectorizer not found at {vectorizer_path}")
+
 if __name__ == "__main__":
     quick_test()
