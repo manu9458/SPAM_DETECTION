@@ -3,6 +3,8 @@
 ## Overview
 This project implements a machine learning pipeline to detect spam messages. It supports multiple classifiers (Naive Bayes, SVM, Logistic Regression) with TF-IDF vectorization, configurable via `config.yaml`. The system is designed to be modular, scalable, and easy to maintain.
 
+For a detailed breakdown of the development steps and future roadmap, please refer to [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md).
+
 ## Project Structure
 ```
 ├── config/             # Configuration files
