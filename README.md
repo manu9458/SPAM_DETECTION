@@ -1,7 +1,7 @@
 # Spam Detection System
 
 ## Overview
-This project implements a machine learning pipeline to detect spam messages. It uses a Naive Bayes classifier with TF-IDF vectorization. The system is designed to be modular, scalable, and easy to maintain.
+This project implements a machine learning pipeline to detect spam messages. It supports multiple classifiers (Naive Bayes, SVM, Logistic Regression) with TF-IDF vectorization, configurable via `config.yaml`. The system is designed to be modular, scalable, and easy to maintain.
 
 ## Project Structure
 ```
@@ -45,7 +45,7 @@ python main.py
 This will:
 - Load the data from `data/raw/spam.csv`
 - Preprocess the text
-- Train a Naive Bayes classifier
+- Train the configured classifier (e.g., Logistic Regression, Naive Bayes)
 - Save the model to `models/spam_classifier.joblib`
 - Log the progress to `logs/app.log`
 
