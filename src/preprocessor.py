@@ -18,7 +18,13 @@ class TextPreprocessor:
         # Convert to lowercase
         text = text.lower()
         
-        # Remove punctuation
+        # Replace currency symbols with text
+        text = re.sub(r'[$€£¥]', ' currency_token ', text)
+        
+        # Replace exclamation marks with text (count matters, but simple replacement helps)
+        text = re.sub(r'!', ' exclamation_token ', text)
+        
+        # Remove punctuation (now safe to remove rest)
         text = text.translate(str.maketrans('', '', string.punctuation))
         
         # Remove extra whitespace

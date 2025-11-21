@@ -6,10 +6,11 @@ data:
   random_state: 42
 
 model:
-  type: "logistic_regression" # Options: naive_bayes, svm, logistic_regression
+  type: "naive_bayes" # Options: naive_bayes, svm, logistic_regression
   tfidf:
     max_features: 5000
     stop_words: "english"
+    ngram_range: [1, 2]
   
 paths:
   model_save_path: "models/spam_classifier.joblib"

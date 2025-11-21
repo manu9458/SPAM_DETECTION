@@ -26,7 +26,8 @@ class SpamModelTrainer:
         # Initialize Vectorizer
         vectorizer = TfidfVectorizer(
             max_features=tfidf_config['max_features'],
-            stop_words=tfidf_config['stop_words']
+            stop_words=tfidf_config['stop_words'],
+            ngram_range=tuple(tfidf_config.get('ngram_range', [1, 1]))
         )
 
         # Initialize Classifier
