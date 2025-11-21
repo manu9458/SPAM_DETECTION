@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detector AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Spam Detector AI</h1>
+            <p>Advanced NLP to keep your inbox clean.</p>
+        </header>
+
+        <main>
+            <div class="input-group">
+                <textarea id="messageInput" placeholder="Paste the message here to analyze..."></textarea>
+            </div>
+            
+            <button id="analyzeBtn" class="glow-on-hover">Analyze Message</button>
+
+            <div id="resultContainer" class="result-container hidden">
+                <div class="loader hidden" id="loader"></div>
+                <div id="resultContent" class="hidden">
+                    <h2 id="predictionTitle"></h2>
+                    <div class="confidence-bar">
+                        <div id="confidenceFill" class="confidence-fill"></div>
+                    </div>
+                    <p id="confidenceText"></p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Scikit-Learn & FastAPI</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

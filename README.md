@@ -11,7 +11,7 @@ For a detailed breakdown of the development steps and future roadmap, please ref
 │   └── config.yaml     # Main config (paths, params)
 ├── data/               # Data directory
 │   ├── raw/            # Original dataset
-│   └── processed/      # Processed data (if any)
+│   └── processed/      # Processed data
 ├── logs/               # Application logs
 ├── models/             # Saved models and vectorizers
 ├── src/                # Source code
@@ -20,13 +20,15 @@ For a detailed breakdown of the development steps and future roadmap, please ref
 │   ├── model_trainer.py# Model training pipeline
 │   └── evaluator.py    # Metrics and evaluation
 ├── tests/              # Notebooks and test scripts
+├── static/             # Web interface assets (HTML, CSS, JS)
+├── app.py              # FastAPI application
 ├── main.py             # Main execution script
 └── requirements.txt    # Dependencies
 ```
 
 ## Setup
 
-1. **Clone the repository** (if applicable)
+1. **Clone the repository**
 2. **Create a virtual environment**:
    ```bash
    python -m venv venv
@@ -56,6 +58,15 @@ You can test the trained model with custom messages using:
 ```bash
 python tests/quick_test.py
 ```
+
+### Web Interface & API
+To launch the web interface and API:
+```bash
+python app.py
+```
+Once running, open your browser and navigate to:
+- **Web UI**: [http://localhost:8000](http://localhost:8000)
+- **API Documentation**: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ## Results
 The current model achieves approximately **96% accuracy** on the test set.
