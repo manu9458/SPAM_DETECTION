@@ -12,3 +12,7 @@ venv/
 *.venv
 
 .git
+.ipynb_checkpoints
+.env
+.vscode/
+*.log

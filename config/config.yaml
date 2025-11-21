@@ -1,1 +1,16 @@
-# Configuration parameters for the Spam Classifier project
+data:
+  raw_data_path: "data/raw/spam.csv"
+  text_column: "v2"
+  label_column: "v1"
+  test_size: 0.2
+  random_state: 42
+
+model:
+  type: "logistic_regression" # Options: naive_bayes, svm, logistic_regression
+  tfidf:
+    max_features: 5000
+    stop_words: "english"
+  
+paths:
+  model_save_path: "models/spam_classifier.joblib"
+  vectorizer_save_path: "models/tfidf_vectorizer.joblib"
